@@ -1,7 +1,8 @@
 <script setup lang="ts">
 // 1. 【导入】 从Vue和相关库中导入所需函数
 import { ref } from 'vue'
-import axios from 'axios'
+// 不再导入原始的axios，而是导入我们封装好的request实例
+import request from '@/utils/request'
 import { useRouter } from 'vue-router'
 import { useUserStore } from '../stores/user'
 
@@ -26,7 +27,9 @@ const login = async () => {
 
   try {
     // b. 使用axios发送POST请求到后端API
-    const response = await axios.post('http://127.0.0.1:8000/api/login/', {
+    // 将axios.post替换为request.post
+    // 注意：URL现在只需要写相对路径 '/login/'，因为baseURL已经配置好了
+    const response = await request.post('/login/', {
       username: username.value,
       password: password.value
     })

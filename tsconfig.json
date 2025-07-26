@@ -1,7 +1,7 @@
 {
   "files": [],
   "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
+    { "path": "./tsconfig.app.json" },//客户端配置(src目录)
+    { "path": "./tsconfig.node.json" }//服务器端配置
   ]
 }
